@@ -1,0 +1,3 @@
+set() je funckija, ki iz arrayov odstranjuje ponavljajoče se elemente, če imamo niz, ki ga želimo prefiltrirati, da se v njemu elementi ne bodo ponavljali, ga damo kot 
+argument funckiji set(), ki bo prefiltirral ponavljajoče elemente
+
