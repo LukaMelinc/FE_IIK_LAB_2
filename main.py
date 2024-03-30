@@ -2,26 +2,26 @@ tipi_kodiranja = ['IBM852', 'ISO-8859-2', 'Windows-1250', 'maccentraleurope', 'U
 
 crke = ['Č', 'Ž', 'Š', 'č', 'ž', 'š']
 
-def dec_to_hex(decimal_value):
-    if decimal_value == 0:
+def dec_to_hex(vrednost):
+    if vrednost == 0:
         return "0"
-    hex_chars = "0123456789ABCDEF"
-    hex_string = ""
-    while decimal_value > 0:
-        remainder = decimal_value % 16
-        hex_string = hex_chars[remainder] + hex_string
-        decimal_value = decimal_value // 16
-    return hex_string
+    hex_znaki = "0123456789ABCDEF"  # nabor hex znakov za filanje hex vrednosti
+    hex_vrednost = ""   # prazna postavljena hex vrednost
+    while vrednost > 0:
+        ostanek = vrednost % 16 # ostanek pri deljenju z 16 nam pove naslednji znak v hex vrednosti
+        hex_vrednost = hex_znaki[ostanek] + hex_vrednost       # dodajanje znaka v hex vredndost
+        vrednost = vrednost // 16   # 
+    return hex_vrednost
 
-def dec_to_bin(decimal_value):
-    if decimal_value == 0:
+def dec_to_bin(vrednost):
+    if vrednost == 0:
         return "0"
-    binary_string = ""
-    while decimal_value > 0:
-        remainder = decimal_value % 2  # Ostanek pri deljenju z 2
-        binary_string = str(remainder) + binary_string  # Dodajanje ostanka na začetek niza
-        decimal_value = decimal_value // 2  # Celodelno deljenje z 2
-    return binary_string
+    bin_vrednost = ""
+    while vrednost > 0:
+        ostanek = vrednost % 2  # Ostanek pri deljenju z 2
+        bin_vrednost = str(ostanek) + bin_vrednost  # Dodajanje ostanka na začetek niza
+        vrednost = vrednost // 2  # Celodelno deljenje z 2
+    return binarna_vrednost
 
 
 
@@ -31,7 +31,7 @@ for kod in tipi_kodiranja:
         desetiska_vrednost = int.from_bytes(znak.encode(encoding=kod), byteorder='big')
         heks_vrednost = dec_to_hex(desetiska_vrednost)
         binarna_vrednost = dec_to_bin(desetiska_vrednost)
-        print(f"Tip kodiranja je {kod}, znak je {znak}. DESETIŠKA vrednost je {desetiska_vrednost}, HEX vrednost vrednost je {heks_vrednost}, BINARNA vrednost je {binarna_vrednost}")
+        print(f"Tip kodiranja je {kod}, znak je {znak}. DESETIŠKA vrednost je {desetiska_vrednost}, HEX vrednost vrednost je 0x{heks_vrednost}, BINARNA vrednost je {binarna_vrednost}")
 
         
 
