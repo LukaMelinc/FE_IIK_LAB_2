@@ -21,7 +21,7 @@ def dec_to_bin(vrednost):
         ostanek = vrednost % 2  # Ostanek pri deljenju z 2
         bin_vrednost = str(ostanek) + bin_vrednost  # Dodajanje ostanka na začetek niza
         vrednost = vrednost // 2  # Celodelno deljenje z 2
-    return binarna_vrednost
+    return bin_vrednost
 
 
 

@@ -33,7 +33,7 @@ def pretvori_v_bajte_in_znak(stevilka):
 def bit_size(vrednost): #calculate the number of bits necesearry to code the number to binary
 
     min_stevilo_bitov = np.log2(vrednost)       # minimalno število bitov, da se lahko zapiše vrednost
-    
+    #    glede na tabelo porežemo ustrezne bite v posamezne bajte
     if min_stevilo_bitov <= 7:
         return [dec_to_bin(vrednost)[2:]]
     elif min_stevilo_bitov <= 11:
@@ -46,7 +46,7 @@ def bit_size(vrednost): #calculate the number of bits necesearry to code the num
         binarna = dec_to_bin(vrednost)[2:].zfill(21)
         return ["11110"+binarna[:3], "10"+binarna[3:9], "10"+binarna[9:15], "10"+binarna[15:]]
     else:
-        print("Stevilka je prevelika")
+        print("Prevelika vrednost")
 
 if __name__ == "__main__":
     with open("kodne točke.txt", "r") as kodne_tocke:
@@ -62,15 +62,15 @@ if __name__ == "__main__":
     unikatni_znaki = list(set(tabela_stevil))  # set() je množica, ki ne vsebuje ponovitev
     unikatni_znaki.sort()
 
-with open("tabela_kodiranja.txt", "w", encoding="utf-8") as datoteka:
-    for stevilka in unikatni_znaki:
-        binarna = "".join(bit_size(stevilka))
-        decimalna = int(binarna, 2)
-        sestnajstiska = hex(decimalna)[2:].upper().zfill(4)
-        _, znak = pretvori_v_bajte_in_znak(stevilka)  # '_' ignorira bajte, ker jih tukaj ne potrebujemo
+    with open("tabela_kodiranja.txt", "w", encoding="utf-8") as datoteka:
+        for stevilka in unikatni_znaki:
+            binarna = "".join(bit_size(stevilka))
+            decimalna = int(binarna, 2)
+            sestnajstiska = hex(decimalna)[2:].upper().zfill(4)
+            _, znak = pretvori_v_bajte_in_znak(stevilka)  # '_' ignorira bajte, ker jih tukaj ne potrebujemo
 
-        print(f"Unicode št. {stevilka} = {znak}, dec={decimalna}, hex={sestnajstiska}")
-        datoteka.write(f"{stevilka};{znak};{binarna};{decimalna};{sestnajstiska}\n")   
+            print(f"Unicode št. {stevilka} = {znak}, dec={decimalna}, hex={sestnajstiska}")
+            datoteka.write(f"{stevilka};{znak};{binarna};{decimalna};{sestnajstiska}\n")   
 
 
 

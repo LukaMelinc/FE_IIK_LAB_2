@@ -68,7 +68,16 @@ funckija with se pogosto uporablja, ko delamo (odpiramo, zapiramo) datoteke in p
 with avtomatično poskrbi za pravilno zapiranje datoteke po končani uporabi
 
     slicing
-    
+
 V Pythonu izraz [2:] uporabljen na nizih ali seznamih predstavlja rezanje (slicing). Ta izraz dobi podniz ali podseznam od elementa na indeksu 2 do konca 
 izvirnega niza ali seznama. Indeksi v Pythonu začnejo šteti od 0, zato [2:] pomeni "vzemi vse elemente, razen prvih dveh".
 Če imate niz s = "Hello", potem s[2:] vrne podniz "llo", saj odstrani prva dva znaka ('H' na indeksu 0 in 'e' na indeksu 1) in vzame preostanek niza.
+
+    .zfill()
+
+
+Funkcija .zfill(width) je metoda nizov v Pythonu, ki "napolni" (angl. "fill") niz z vodilnimi ničlami (0), dokler dolžina niza ne doseže želene širine 
+(width). Če je dolžina izvirnega niza že večja ali enaka podani širini, metoda vrne izvirni niz brez sprememb.
+
+    .upper()
+funkcija pretovri string v velike tiskane črke
