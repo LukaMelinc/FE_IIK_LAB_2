@@ -1,3 +1,74 @@
+    set()
+
 set() je funckija, ki iz arrayov odstranjuje ponavljajoče se elemente, če imamo niz, ki ga želimo prefiltrirati, da se v njemu elementi ne bodo ponavljali, ga damo kot 
 argument funckiji set(), ki bo prefiltirral ponavljajoče elemente
 
+    split()
+
+Funkcija .split() v Pythonu je metoda nizov, ki razdeli niz na seznam podnizov na podlagi določenega ločilnika. Če ločilnik ni podan, metoda privzeto uporabi 
+beli prostor (npr. presledek, tabulator, nov vrstic) kot ločilnik in vrne seznam besed ali podnizov, ki so bili ločeni s tem ločilnikom. Metoda .split() je zelo 
+uporabna za obdelavo in analizo tekstovnih podatkov.
+
+Tukaj je osnovna uporaba metode .split():
+
+besedilo = "To je primer besedila."
+rezultat = besedilo.split()
+print(rezultat)
+
+['To', 'je', 'primer', 'besedila.']
+
+besedilo = "To,je,primer,besedila."
+rezultat = besedilo.split(',')
+print(rezultat)
+
+['To', 'je', 'primer', 'besedila.']
+
+
+    list()
+
+Funkcija list() v Pythonu se uporablja za ustvarjanje novega seznama. Seznam je ena izmed osnovnih podatkovnih struktur v Pythonu, ki omogoča shranjevanje
+ urejenih zbirk elementov. Elementi v seznamu so indeksirani, začenši z indeksom 0 za prvi element, in lahko vsebujejo elemente različnih tipov, vključno z 
+ drugimi seznami. Funkcija list() je lahko koristna v več kontekstih:
+
+niz = "Python"
+seznam_iz_niza = list(niz)
+print(seznam_iz_niza)
+# Izpis: ['P', 'y', 't', 'h', 'o', 'n']
+
+mnozica = {1, 2, 3}
+seznam_iz_mnozice = list(mnozica)
+print(seznam_iz_mnozice)
+# Izpis: [1, 2, 3]
+
+    write()
+
+Funkcija write() v Pythonu je metoda, ki se uporablja pri delu z datotekami. Ko odprete datoteko v načinu za pisanje ('w') ali dodajanje ('a'), lahko uporabite 
+metodo write() za zapisovanje niza v datoteko. Če datoteka, v katero pišete, že obstaja, bo način 'w' (pisanje) povozil datoteko, medtem ko bo način 'a' (dodajanje)
+dodal vsebino na konec datoteke.
+
+
+    bytes()
+
+Razred bytes v Pythonu predstavlja nespremenljive (immutable) zaporedje števil od 0 do 255 in se običajno uporablja za shranjevanje surovih binarnih podatkov, 
+kot so vsebine datotek v binarnem formatu, komunikacije preko mreže ali druge oblike podatkov, ki niso primarno tekstovni. Zaradi svoje nespremenljivosti,
+enkrat ko je objekt bytes ustvarjen, njegove vsebine ni mogoče spremeniti.
+
+    int()
+
+Koda int(i, 2) v Pythonu pretvori niz i, ki predstavlja število v binarnem sistemu (osnova 2), v celo število v desetiškem sistemu (osnova 10). Funkcija int() 
+ima dva argumenta: prvi je niz ali številka, ki jo želite pretvoriti, in drugi je osnova sistema, v katerem je ta številka. V tem primeru 2 pomeni, da funkcija 
+pričakuje niz, ki predstavlja binarno število (samo z znamenkami 0 in 1), in ga pretvori v njegov desetiški ekvivalent.
+
+Na primer, če je i = '101', potem bo int(i, 2) vrnilo število 5, ker je 101 v binarnem sistemu enako 5 v desetiškem sistemu.
+argument i mora biti v navednicah!
+
+    with:
+
+funckija with se pogosto uporablja, ko delamo (odpiramo, zapiramo) datoteke in podobno, ko upravljamo z viri
+with avtomatično poskrbi za pravilno zapiranje datoteke po končani uporabi
+
+    slicing
+    
+V Pythonu izraz [2:] uporabljen na nizih ali seznamih predstavlja rezanje (slicing). Ta izraz dobi podniz ali podseznam od elementa na indeksu 2 do konca 
+izvirnega niza ali seznama. Indeksi v Pythonu začnejo šteti od 0, zato [2:] pomeni "vzemi vse elemente, razen prvih dveh".
+Če imate niz s = "Hello", potem s[2:] vrne podniz "llo", saj odstrani prva dva znaka ('H' na indeksu 0 in 'e' na indeksu 1) in vzame preostanek niza.
