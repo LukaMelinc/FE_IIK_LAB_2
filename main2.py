@@ -30,23 +30,24 @@ def pretvori_v_bajte_in_znak(stevilka):
 
 #print(dec_to_bin(269))
 # UTF-8 strukturea predpon (glej tabelo v navodilih)
-def bit_size(vrednost): #calculate the number of bits necesearry to code the number to binary
-
-    min_stevilo_bitov = np.log2(vrednost)       # minimalno število bitov, da se lahko zapiše vrednost
-    #    glede na tabelo porežemo ustrezne bite v posamezne bajte
-    if min_stevilo_bitov <= 7:
-        return [dec_to_bin(vrednost)[2:]]
-    elif min_stevilo_bitov <= 11:
-        binarna = dec_to_bin(vrednost)[2:].zfill(11)
-        return ["110"+binarna[:5], "10"+binarna[5:]]
-    elif min_stevilo_bitov <= 16:
-        binarna = dec_to_bin(vrednost)[2:].zfill(16)
-        return ["1110"+binarna[:4], "10"+binarna[4:10], "10"+binarna[10:]]
-    elif min_stevilo_bitov <= 21:
-        binarna = dec_to_bin(vrednost)[2:].zfill(21)
-        return ["11110"+binarna[:3], "10"+binarna[3:9], "10"+binarna[9:15], "10"+binarna[15:]]
+def bit_size(vrednost):
+    if vrednost <= 0x7F:
+        return [dec_to_bin(vrednost).zfill(8)]
+    elif vrednost <= 0x7FF:
+        return ["110" + dec_to_bin(vrednost >> 6).zfill(5), 
+                "10" + dec_to_bin(vrednost & 0x3F).zfill(6)]
+    elif vrednost <= 0xFFFF:
+        return ["1110" + dec_to_bin(vrednost >> 12).zfill(4), 
+                "10" + dec_to_bin((vrednost >> 6) & 0x3F).zfill(6),
+                "10" + dec_to_bin(vrednost & 0x3F).zfill(6)]
+    elif vrednost <= 0x10FFFF:
+        return ["11110" + dec_to_bin(vrednost >> 18).zfill(3),
+                "10" + dec_to_bin((vrednost >> 12) & 0x3F).zfill(6),
+                "10" + dec_to_bin((vrednost >> 6) & 0x3F).zfill(6),
+                "10" + dec_to_bin(vrednost & 0x3F).zfill(6)]
     else:
-        print("Prevelika vrednost")
+        print("Izven dosega")
+        return None
 
 if __name__ == "__main__":
     with open("kodne točke.txt", "r") as kodne_tocke:
@@ -73,4 +74,4 @@ if __name__ == "__main__":
             datoteka.write(f"{stevilka};{znak};{binarna};{decimalna};{sestnajstiska}\n")   
 
 
-
+#print(unikatni_znaki)
